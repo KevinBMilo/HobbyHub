@@ -1,0 +1,19 @@
+@model LoginUser
+
+
+<h2>Login</h2>
+<form asp-action="verify" method="post" asp-controller="Home">
+    <div class="form-group">
+        <label asp-for="LoginUsername">Username:</label>
+        <input asp-for="LoginUsername" type="text" class="form-control">
+        <span class="text-danger" asp-validation-for="LoginUsername"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LoginPassword">Password:</label>
+        <input asp-for="LoginPassword" type="password" class="form-control">
+        <span class="text-danger" asp-validation-for="LoginPassword"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-outline-dark">Login</button>
+    </div>
+</form>

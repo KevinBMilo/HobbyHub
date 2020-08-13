@@ -1,0 +1,27 @@
+@using ExamThree.Models
+@model Passion
+
+@{
+    var c = Model;
+}
+
+<h1>Edit A Hobby</h1>
+
+<a href="/Hobby">Home</a>
+<a href="/logout">Logout</a>
+
+<form asp-action="change" asp-route-PasId=@c.PasId method="post" asp-controller="Home">
+<div class="form-group">
+    <label asp-for="PasName">Name</label>
+    <input asp-for="PasName" type="text" class="form-control">
+    <span class="text-danger" asp-validation-for="PasName"></span>
+</div>
+<div class="form-group">
+    <label asp-for="PasContent">Description</label>
+    <textarea asp-for="PasContent" row="3" class="form-control" ></textarea>
+    <span class="text-danger" asp-validation-for="PasContent"></span>
+</div>
+<div class="form-group">
+    <button type="submit" class="btn btn-outline-dark">Update</button>
+</div>
+</form>

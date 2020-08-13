@@ -1,0 +1,46 @@
+@using ExamThree.Models
+@model Passion
+
+<a href="/Hobby">Home</a>
+<a href="/logout">Logout</a>
+
+<h1>@Model.PasName</h1>
+
+<h3>Description:</h3><p>@Model.PasContent</p>
+
+@if(Model.UserId == @ViewBag.UserId.UserId)
+{
+<a href="/edit/@Model.PasId" class="btn btn-secondary m-1">Edit Hobby</a>
+}
+
+<h4>@Model.PasName Enthusiasts:</h4>
+
+<div class="card-group">
+  <div class="card">
+    <div class="card-body">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+        @foreach(var fa in Model.Fans)
+        {           
+          <tr>
+            <td>@fa.User.Username</td>
+          </tr>
+        }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+@if(Model.Fans.Any(u => u.UserId == @ViewBag.UserId.UserId) == true)
+{
+<p>You have already added this to your Hobbies.</p>
+}
+else{
+<a href="/love/@Model.PasId" class="btn btn-secondary m-1">Add to Hobbies</a>
+}
+

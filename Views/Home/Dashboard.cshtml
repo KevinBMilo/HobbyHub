@@ -1,0 +1,32 @@
+@using ExamThree.Models
+@model ViewModel
+
+
+<h1>Hobbies</h1>
+
+<a href="/logout">Logout</a>
+
+<div class="card-group">
+  <div class="card">
+    <div class="card-body">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>Name</th>
+            <th>Enthusiasts</th>
+          </tr>
+        </thead>
+        <tbody>
+              @foreach(var h in Model.AllPassions)
+              {           
+          <tr>
+            <td><a href="Hobby/@h.PasId">@h.PasName</a></td>
+            <td>@h.Fans.Count()</td>
+          </tr>
+              }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<a href="new">Create a Hobby</a>
